@@ -17,10 +17,11 @@ const Game = ({ name, release, image, id }) => {
   };
   return (
     <StyledGame layoutId={stringPathId} onClick={loadHandler}>
-      <motion.h3>{name}</motion.h3>
-      <p>{release}</p>
-      <Link to={`/games/${id}`}>
-        <motion.img src={smallImage(image, 640)} alt={name} />
+      <Link to={`/games/${id}`} style={{ textDecoration: "none" }}>
+        <h3>{name}</h3>
+        <p>{release}</p>
+
+        <img src={smallImage(image, 640)} alt={name} />
       </Link>
     </StyledGame>
   );
@@ -33,6 +34,7 @@ const StyledGame = styled(motion.div)`
   text-align: center;
   cursor: pointer;
   overflow: hidden;
+  text-decoration: none;
   img {
     width: 100%;
     border-bottom-left-radius: 1rem;
