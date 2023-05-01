@@ -17,7 +17,7 @@ export const loadGames = () => async (dispatch) => {
 };
 
 export const searchGames = (gameName) => async (dispatch) => {
-  const searchedGames = await axios.get(gamesSerach());
+  const searchedGames = await axios.get(gamesSerach(gameName));
 
   dispatch({
     type: "SEARCHED_GAME",

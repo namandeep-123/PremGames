@@ -1,19 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 //styling
 import styled from "styled-components";
 import { motion } from "framer-motion";
 //Logo
 import logo from "../img/logo.svg";
+//redux
+import { useDispatch } from "react-redux";
+import { searchGames } from "../redux/action/gamesAction";
+//animation
+import { fadeIn } from "../animation";
 
 const Nav = () => {
+  const [textInput, setTextInput] = useState("");
+  const dispatch = useDispatch();
+  //search Handler
+  const searchHandler = (e) => {
+    e.preventDefault();
+    dispatch(searchGames(textInput));
+    setTextInput("");
+  };
+  const changeHandler = (e) => {
+    setTextInput(e.target.value);
+  };
+  const emptySearchHandler = () => {
+    dispatch({
+      type: "CLEAR_SEARCH",
+    });
+  };
   return (
-    <StyledNav>
-      <Logo>
+    <StyledNav variants={fadeIn} initial="hidden" animate="show">
+      <Logo onClick={emptySearchHandler}>
         <img src={logo} alt="logo" />
         <h2>PremGames</h2>
       </Logo>
-      <input type="text" />
-      <button>Seacrh</button>
+      <form>
+        <input type="text" value={textInput} onChange={changeHandler} />
+        <button type="submit" onClick={searchHandler}>
+          Seacrh
+        </button>
+      </form>
     </StyledNav>
   );
 };

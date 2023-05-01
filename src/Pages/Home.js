@@ -10,6 +10,8 @@ import Game from "../components/Game";
 import GameDetails from "../components/GameDetails";
 //Location
 import { useLocation } from "react-router-dom";
+//animation
+import { fadeIn } from "../animation";
 
 const Home = () => {
   const location = useLocation();
@@ -19,13 +21,34 @@ const Home = () => {
   useEffect(() => {
     dispatch(loadGames());
   }, [dispatch]);
-  const { popular, newGames, upcoming } = useSelector((state) => state.game);
+  const { popular, newGames, upcoming, searched } = useSelector(
+    (state) => state.game
+  );
   return (
-    <GameList>
+    <GameList variants={fadeIn} initial="hidden" animate="show">
       <AnimateSharedLayout type="switch">
         <AnimatePresence>
           {pathID && <GameDetails pathID={pathID} />}
         </AnimatePresence>
+        {searched.length ? (
+          <div className="searched">
+            <h2>Searched Games</h2>
+            <Games>
+              {searched.map((game) => (
+                <Game
+                  name={game.name}
+                  release={game.released}
+                  image={game.background_image}
+                  id={game.id}
+                  key={game.id}
+                />
+              ))}
+            </Games>
+          </div>
+        ) : (
+          ""
+        )}
+
         <h2>Upcoming Games</h2>
         <Games>
           {upcoming.map((game) => (
