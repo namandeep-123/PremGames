@@ -91,12 +91,16 @@ const Home = () => {
 };
 
 const GameList = styled(motion.div)`
+  background: #1b1b1b;
+  color: white;
   padding: 0rem 3rem;
   h2 {
     padding: 3rem 0rem;
+    color: white;
   }
 `;
 const Games = styled(motion.div)`
+  color: white;
   min-height: 80vh;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));

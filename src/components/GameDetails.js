@@ -111,6 +111,8 @@ const GameDetails = ({ pathID }) => {
 
 const Shadow = styled(motion.div)`
   width: 100%;
+  z-index: 5;
+  color: white;
   min-height: 100vh;
   overflow-y: scroll;
   background: rgba(0, 0, 0, 0.5);
@@ -131,7 +133,7 @@ const Detail = styled(motion.div)`
   width: 80%;
   border-radius: 1rem;
   padding: 2rem 5rem;
-  background: white;
+  background: #121212;
   position: absolute;
   left: 10%;
   color: black;

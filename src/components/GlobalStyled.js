@@ -19,6 +19,7 @@ const GlobalStyled = createGlobalStyle`
       }
   }
   body{
+      
       font-family: "Montserrat", san-serif;
       width: 100%;
       h2{
