@@ -105,6 +105,9 @@ const Logo = styled(motion.div)`
     margin: 0.4rem 0.4rem 0rem 0rem;
     height: 2rem;
   }
+  h2 {
+    color: white;
+  }
 `;
 
 const Heading = styled(motion.div)`
