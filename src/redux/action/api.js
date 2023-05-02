@@ -43,5 +43,5 @@ export const gamesScreenURL = (gameid) =>
 
 //game Search
 
-export const gamesSerach = (gameName) =>
+export const gamesSearch = (gameName) =>
   `${basic_urla}games?search=${gameName}&key=${API_KEY}&page_size=9`;

@@ -55,7 +55,7 @@ const Nav = () => {
         <form>
           <input type="text" value={textInput} onChange={changeHandler} />
           <button type="submit" onClick={searchHandler}>
-            Seacrh
+            Search
           </button>
         </form>
       </StyledNav>
